@@ -115,12 +115,58 @@ Pronto! A API estará disponível em `http://localhost:8080/api`.
 
 ```json
 {
-  "data": [
-    { "id": 1, "name": "Praça da Sé", "slug": "praca-da-se", "city": "São Paulo", "state": "SP", ... },
-    { "id": 2, "name": "Parque Ibirapuera", ... }
+  "data":
+  [
+    {
+        "id": 1,
+        "name": "Praça da Sé",
+        "slug": "praca-da-se",
+        "city": "São Paulo",
+        "state": "SP",
+        "created_at": "2025-05-14T20:14:09.000000Z",
+        "updated_at": "2025-05-14T20:14:09.000000Z"
+    },
+    {
+        "id": 3,
+        "name": "Museu do Amanhã",
+        "slug": "museu-do-amanha",
+        "city": "Rio de Janeiro",
+        "created_at": "2025-05-14T20:14:09.000000Z",
+        "updated_at": "2025-05-14T20:14:09.000000Z"
+    }
   ],
-  "links": { ... },
-  "meta": { ... }
+  "links": {
+        "first": "http://localhost:8080/api/places?page=1",
+        "last": "http://localhost:8080/api/places?page=1",
+        "prev": null,
+        "next": null
+    },
+    "meta": {
+        "current_page": 1,
+        "from": 1,
+        "last_page": 1,
+        "links": [
+            {
+                "url": null,
+                "label": "&laquo; Previous",
+                "active": false
+            },
+            {
+                "url": "http://localhost:8080/api/places?page=1",
+                "label": "1",
+                "active": true
+            },
+            {
+                "url": null,
+                "label": "Next &raquo;",
+                "active": false
+            }
+        ],
+        "path": "http://localhost:8080/api/places",
+        "per_page": 50,
+        "to": 10,
+        "total": 10
+    }
 }
 ```
 
