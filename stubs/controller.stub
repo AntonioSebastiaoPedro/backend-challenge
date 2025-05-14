@@ -1,0 +1,55 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use App\Services\{{class}}Service;
+use App\Http\Requests\{{class}}\{Store{{class}}Request, Update{{class}}Request};
+use App\Http\Resources\{{class}}Resource;
+use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+
+class {{class}}Controller extends Controller
+{
+    public function __construct(
+        protected {{class}}Service $service
+    ) {}
+
+    public function index(Request $request)
+    {
+        $resource = $this->service->getAllPaginated($request);
+
+        return {{class}}Resource::collection($resource);
+    }
+
+    public function store(Store{{class}}Request $request): {{class}}Resource
+    {
+        ${{class}} = $this->service->create($request);
+
+        return new {{class}}Resource(${{class}});
+    }
+
+    public function show(string $id): JsonResponse|{{class}}Resource
+    {
+        if (!${{class}} = $this->service->getById($id)) {
+            return response()->json(['message' => '{{class}} not found'], 404);
+        }
+        return new {{class}}Resource(${{class}});
+    }
+
+    public function update(Update{{class}}Request $request, string $id): JsonResponse|{{class}}Resource
+    {
+        if (! ${{class}} = $this->service->update($request, $id)) {
+            return response()->json(['message' => '{{class}} not found'], 404);
+        }
+        return new {{class}}Resource(${{class}});
+    }
+
+    public function destroy(string $id): JsonResponse
+    {
+        if (!$this->service->delete($id)) {
+            return response()->json(['message' => '{{class}} not found'], 404);
+        }
+        return response()->json(['message' => ''], 204);
+    }
+}

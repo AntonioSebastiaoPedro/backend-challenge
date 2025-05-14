@@ -1,0 +1,55 @@
+<?php
+
+namespace App\Services;
+
+use App\DTOs\{{class}}\{Create{{class}}DTO, Edit{{class}}DTO};
+use Illuminate\Contracts\Pagination\LengthAwarePaginator;
+use App\Http\Requests\{{class}}\{Store{{class}}Request, Update{{class}}Request};
+use App\Repositories\{{class}}Repository;
+use Illuminate\Http\Request;
+use App\Models\{{class}};
+
+class {{class}}Service
+{
+    public function __construct(
+        protected {{class}}Repository $repository
+    ) {}
+
+    public function getAllPaginated(Request $request): LengthAwarePaginator
+    {
+        $result = $this->repository->getPaginate(
+            totalPerPage: $request->perPage ?? 10,
+            page: $request->page ?? 1,
+            filter: $request->filter ?? ''
+        );
+        return $result;
+    }
+
+    public function create(Store{{class}}Request $request): {{class}}
+    {
+        $dto = new Create{{class}}DTO(...$request->validated());
+        $created = $this->repository->createNew($dto);
+
+        return $created;
+    }
+
+    public function getById(string $id): {{class}}|null
+    {
+        $result = $this->repository->findById($id);
+
+        return $result;
+    }
+
+    public function update(Update{{class}}Request $request, string $id): bool
+    {
+        $dto = new Edit{{class}}DTO(...[$id, ...$request->validated()]);
+        $updated = $this->repository->update($dto);
+
+        return $updated;
+    }
+
+    public function delete(string $id): bool
+    {
+        return $this->repository->delete($id);
+    }
+}
