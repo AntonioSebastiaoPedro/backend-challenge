@@ -37,7 +37,7 @@ A **Places API** permite ao desenvolvedor executar operações CRUD em recursos 
 1. **Clonar o repositório**
 
    ```bash
-   git clone https://seu-remote/places-api.git
+   git clone https://github.com/AntonioSebastiaoPedro/backend-challenge.git
    cd places-api
    ```
 
