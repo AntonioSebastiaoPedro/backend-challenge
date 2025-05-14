@@ -204,7 +204,7 @@ Pronto! A API estará disponível em `http://localhost:8080/api`.
 4. Verifique o status:
 
    * `201`: sucesso (retorna o recurso criado).
-   * `422`: erro de validação (campos obrigatórios, slug duplicado).
+   * `422`: erro de validação (campos obrigatórios).
 
 #### Exemplo de resposta 200
 
@@ -268,7 +268,7 @@ Pronto! A API estará disponível em `http://localhost:8080/api`.
 * **Parâmetros de path:**
 
   * `id` (string, obrigatório)
-* **Body (JSON):** mesmos campos de criação (`name`, `slug`, `city`, `state`)
+* **Body (JSON):** mesmos campos de criação (`name`, `city`, `state`)
 
 #### Passos para executar
 
