@@ -53,14 +53,20 @@ class PlaceController extends Controller
                 ->json(
                     [
                         'error' => [
-                            'code' => 404,
                             'message' => 'Place not found'
                         ],
                     ],
                     404
                 );
         }
-        return new PlaceResource($place);
+        return response()
+            ->json(
+                [
+                    'message' => 'Place updated successfully',
+                    'data' => new PlaceResource($place)
+                ],
+                200
+            );
     }
 
     public function destroy(string $id): JsonResponse

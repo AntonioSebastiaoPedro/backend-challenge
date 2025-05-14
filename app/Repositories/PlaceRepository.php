@@ -33,9 +33,13 @@ class PlaceRepository
         return $this->place->find($id);
     }
 
-    public function update(EditPlaceDTO $placeDto): bool
+    public function update(EditPlaceDTO $placeDto, string $id): bool
     {
-        return $this->place->update($placeDto->toArray());
+        if (!$place = $this->findById($id)) {
+            return false;
+        }
+        return $place->update($placeDto->toArray());
+
     }
 
     public function delete(string $id): bool

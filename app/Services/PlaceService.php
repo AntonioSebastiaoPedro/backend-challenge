@@ -43,12 +43,19 @@ class PlaceService
         return $result;
     }
 
-    public function update(UpdatePlaceRequest $request, string $id): bool
+    public function update(UpdatePlaceRequest $request, string $id): ?Place
     {
-        $dto = EditPlaceDTO::fromArray([$id, ...$request->validated()]);
-        $updated = $this->repository->update($dto);
+        $validatedData = $request->validated();
+        $validatedData['id'] = $id;
+        $validatedData['slug'] = Str::slug($validatedData['name']);
+        $dto = EditPlaceDTO::fromArray($validatedData);
+        $success = $this->repository->update($dto, $id);
 
-        return $updated;
+        if (!$success) {
+            return null;
+        }
+
+        return $this->getById($id);
     }
 
     public function delete(string $id): bool

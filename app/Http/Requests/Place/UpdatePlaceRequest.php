@@ -16,10 +16,22 @@ class UpdatePlaceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'data' => [
+            'name' => [
                 'required',
                 'string',
-                'min:5',
+                'min:3',
+                'max:255',
+            ],
+            'city' => [
+                'required',
+                'string',
+                'min:3',
+                'max:255',
+            ],
+            'state' => [
+                'required',
+                'string',
+                'min:3',
                 'max:255',
             ],
         ];
