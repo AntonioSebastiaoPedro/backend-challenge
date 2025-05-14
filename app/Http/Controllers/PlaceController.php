@@ -23,7 +23,7 @@ class PlaceController extends Controller
         return PlaceResource::collection($resource);
     }
 
-    public function store(StorePlaceRequest $request): JsonResponse|PlaceResource
+    public function store(StorePlaceRequest $request): PlaceResource
     {
         $place = $this->placeService->create($request);
 
@@ -37,7 +37,6 @@ class PlaceController extends Controller
                 ->json(
                     [
                         'error' => [
-                            'code' => 404,
                             'message' => 'Place not found'
                         ],
                     ],
