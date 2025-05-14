@@ -76,7 +76,6 @@ class PlaceController extends Controller
                 ->json(
                     [
                         'error' => [
-                            'code' => 404,
                             'message' => 'Place not found'
                         ],
                     ],

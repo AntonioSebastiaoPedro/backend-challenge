@@ -8,4 +8,5 @@ Route::prefix('places')->group(function () {
     Route::get('/{id}', [PlaceController::class, 'show']);
     Route::post('/', [PlaceController::class, 'store']);
     Route::put('/{id}', [PlaceController::class, 'update']);
+    Route::delete('/{id}', [PlaceController::class, 'destroy']);
 });
