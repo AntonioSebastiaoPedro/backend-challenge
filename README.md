@@ -71,7 +71,7 @@ A **Places API** permite ao desenvolvedor executar operações CRUD em recursos 
    php artisan db:seed
    ```
 
-Pronto! A API estará disponível em `http://localhost:8000/api`.
+Pronto! A API estará disponível em `http://localhost:8080/api`.
 
 ---
 
@@ -79,7 +79,7 @@ Pronto! A API estará disponível em `http://localhost:8000/api`.
 
 | URL                                | Descrição                   |
 | ---------------------------------- | --------------------------- |
-| `http://localhost:8000/api/places`        | Servidor de desenvolvimento |
+| `http://localhost:8080/api/places`        | Servidor de desenvolvimento |
 
 ---
 
@@ -98,7 +98,7 @@ Pronto! A API estará disponível em `http://localhost:8000/api`.
 1. Faça um GET para:
 
    ```plaintext
-   GET http://localhost:8000/api/places?page=1&per_page=15
+   GET http://localhost:8080/api/places?page=1&per_page=15
    ```
 2. Defina o header:
 
@@ -138,7 +138,7 @@ Pronto! A API estará disponível em `http://localhost:8000/api`.
 1. Faça um POST para:
 
    ```plaintext
-   POST http://localhost:8000/api/places
+   POST http://localhost:8080/api/places
    ```
 2. Headers:
 
@@ -188,7 +188,7 @@ Pronto! A API estará disponível em `http://localhost:8000/api`.
 1. Faça um GET para:
 
    ```plaintext
-   GET http://localhost:8000/api/places/3
+   GET http://localhost:8080/api/places/3
    ```
 2. Header:
 
@@ -229,7 +229,7 @@ Pronto! A API estará disponível em `http://localhost:8000/api`.
 1. Faça um PUT para:
 
    ```plaintext
-   PUT http://localhost:8000/api/places/1
+   PUT http://localhost:8080/api/places/1
    ```
 2. Headers:
 
@@ -281,7 +281,7 @@ Pronto! A API estará disponível em `http://localhost:8000/api`.
 1. Faça um DELETE para:
 
    ```plaintext
-   DELETE http://localhost:8000/api/places/1
+   DELETE http://localhost:8080/api/places/1
    ```
 2. Header:
 
