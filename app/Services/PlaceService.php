@@ -8,6 +8,7 @@ use App\Http\Requests\Place\{StorePlaceRequest, UpdatePlaceRequest};
 use App\Repositories\PlaceRepository;
 use Illuminate\Http\Request;
 use App\Models\Place;
+use Illuminate\Support\Str;
 
 class PlaceService
 {
@@ -27,7 +28,9 @@ class PlaceService
 
     public function create(StorePlaceRequest $request): Place
     {
-        $dto = CreatePlaceDTO::fromArray($request->validated());
+        $validatedData = $request->validated();
+        $validatedData['slug'] = Str::slug($validatedData['name']);
+        $dto = CreatePlaceDTO::fromArray($validatedData);
         $place = $this->repository->create($dto);
 
         return $place;

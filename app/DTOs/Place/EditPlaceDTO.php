@@ -7,7 +7,7 @@ class EditPlaceDTO
     public function __construct(
         public readonly string $id,
         public readonly string $name,
-        public readonly string $slug,
+        public string $slug,
         public readonly string $city,
         public readonly string $state
     ){}

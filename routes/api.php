@@ -6,4 +6,5 @@ use App\Http\Controllers\PlaceController;
 Route::prefix('places')->group(function () {
     Route::get('/', [PlaceController::class, 'index']);
     Route::get('/{id}', [PlaceController::class, 'show']);
+    Route::post('/', [PlaceController::class, 'store']);
 });
